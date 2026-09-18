@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>MIKASAHUB</title>
 
 <style>
@@ -57,41 +58,31 @@ main {
     font-size: 18px;
 }
 
-/* AI BOX */
-.ai-box {
-    margin-top: 5px;
-}
-
-.ai-box textarea {
+.ai-input {
     width: 100%;
     height: 70px;
     box-sizing: border-box;
     padding: 8px;
     font-size: 15px;
     border: 1px solid #555;
-    resize: none;
 }
 
 .ai-button {
-    display: block;
     width: 100%;
-    box-sizing: border-box;
-    padding: 12px 8px;
+    padding: 12px;
     margin-top: 6px;
     background: #eee;
     border: 1px solid #777;
-    color: black;
     font-size: 16px;
 }
 
-.ai-answer {
+.answer {
     margin-top: 8px;
     padding: 8px;
     border: 1px solid #999;
     background: #fafafa;
-    min-height: 30px;
+    min-height: 35px;
     white-space: pre-wrap;
-    word-wrap: break-word;
 }
 
 .button {
@@ -123,104 +114,245 @@ footer {
 <main>
 
 <div class="search">
-    <input type="text" id="searchBox" placeholder="Search MIKASAHUB">
+    <input type="text" id="searchBox"
+    placeholder="Search MIKASAHUB">
 </div>
 
+
+<!-- MIKASA AI -->
+
 <div class="section">
-    <h2>🤖 Mikasa AI</h2>
 
-    <div class="ai-box">
-        <textarea id="question"
-        placeholder="Type your question here"></textarea>
+<h2>MIKASA AI</h2>
 
-        <button class="ai-button" onclick="askAI()">
-            ASK
-        </button>
+<textarea
+class="ai-input"
+id="question"
+placeholder="Type your question..."></textarea>
 
-        <div class="ai-answer" id="answer">
-            Answer will appear here.
-        </div>
-    </div>
+<button class="ai-button" onclick="askAI()">
+ASK
+</button>
+
+<div class="answer" id="answer">
+Answer will appear here.
 </div>
 
-<div class="section">
-    <h2>Entertainment</h2>
-
-    <a class="button" href="music.html">1. Music</a>
-    <a class="button" href="videos.html">2. Videos</a>
-    <a class="button" href="manga.html">3. Manga</a>
 </div>
 
-<div class="section">
-    <h2>Downloads</h2>
 
-    <a class="button" href="downloads.html">4. Downloads</a>
-    <a class="button" href="books.html">5. E-Books</a>
+<div class="section">
+
+<h2>Entertainment</h2>
+
+<a class="button" href="music.html">1. Music</a>
+<a class="button" href="videos.html">2. Videos</a>
+<a class="button" href="manga.html">3. Manga</a>
+
 </div>
 
-<div class="section">
-    <h2>Other</h2>
 
-    <a class="button" href="tools.html">6. Tools</a>
-    <a class="button" href="about.html">7. About</a>
+<div class="section">
+
+<h2>Downloads</h2>
+
+<a class="button" href="downloads.html">4. Downloads</a>
+<a class="button" href="books.html">5. E-Books</a>
+
+</div>
+
+
+<div class="section">
+
+<h2>Other</h2>
+
+<a class="button" href="tools.html">6. Tools</a>
+<a class="button" href="about.html">7. About</a>
+
 </div>
 
 </main>
 
+
 <footer>
-    MIKASAHUB © 2026
+MIKASAHUB © 2026
 </footer>
 
+
 <script>
-const searchBox = document.getElementById("searchBox");
+
+/* SEARCH */
+
+const searchBox =
+document.getElementById("searchBox");
 
 searchBox.addEventListener("input", function() {
-    const text = searchBox.value.toLowerCase();
-    const buttons = document.querySelectorAll(".button");
+
+    const text =
+    searchBox.value.toLowerCase();
+
+    const buttons =
+    document.querySelectorAll(".button");
 
     buttons.forEach(function(button) {
-        if (button.textContent.toLowerCase().includes(text)) {
+
+        if (
+        button.textContent
+        .toLowerCase()
+        .includes(text)
+        ) {
+
             button.style.display = "block";
+
         } else {
+
             button.style.display = "none";
+
         }
+
     });
+
 });
 
 
+/* OFFLINE AI DEMO */
+
 function askAI() {
 
-    const question = document.getElementById("question").value;
-    const answer = document.getElementById("answer");
+    const q =
+    document.getElementById("question")
+    .value
+    .toLowerCase()
+    .trim();
 
-    if (question.trim() === "") {
-        answer.innerHTML = "Please type a question.";
+    const answer =
+    document.getElementById("answer");
+
+
+    if (q === "") {
+
+        answer.innerHTML =
+        "Please type a question.";
+
         return;
+
     }
 
-    answer.innerHTML = "Thinking...";
 
-    fetch("YOUR_AI_BACKEND_URL", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            question: question
-        })
-    })
-    .then(function(response) {
-        return response.json();
-    })
-    .then(function(data) {
-        answer.innerHTML = data.answer;
-    })
-    .catch(function() {
+    /* BASIC QUESTIONS */
+
+
+    if (
+    q.includes("what is atom") ||
+    q.includes("define atom") ||
+    q.includes("atom kya hai")
+    ) {
+
         answer.innerHTML =
-        "AI server is unavailable.";
-    });
+        "An atom is the smallest unit of an element that retains the chemical properties of that element.";
+
+        return;
+
+    }
+
+
+    if (
+    q.includes("speed") &&
+    q.includes("formula")
+    ) {
+
+        answer.innerHTML =
+        "Speed = Distance ÷ Time";
+
+        return;
+
+    }
+
+
+    if (
+    q.includes("newton") &&
+    q.includes("first law")
+    ) {
+
+        answer.innerHTML =
+        "Newton's First Law states that an object remains at rest or in uniform motion unless acted upon by an external unbalanced force.";
+
+        return;
+
+    }
+
+
+    if (
+    q.includes("photosynthesis")
+    ) {
+
+        answer.innerHTML =
+        "Photosynthesis is the process by which green plants prepare food using sunlight, carbon dioxide and water in the presence of chlorophyll.";
+
+        return;
+
+    }
+
+
+    if (
+    q.includes("cell") &&
+    q.includes("basic unit")
+    ) {
+
+        answer.innerHTML =
+        "The cell is the basic structural and functional unit of life.";
+
+        return;
+
+    }
+
+
+    if (
+    q.includes("democracy")
+    ) {
+
+        answer.innerHTML =
+        "Democracy is a system of government in which people choose their representatives through elections.";
+
+        return;
+
+    }
+
+
+    if (
+    q.includes("hello") ||
+    q.includes("hi")
+    ) {
+
+        answer.innerHTML =
+        "Hello! I am Mikasa AI.";
+
+        return;
+
+    }
+
+
+    if (
+    q.includes("who are you") ||
+    q.includes("your name")
+    ) {
+
+        answer.innerHTML =
+        "I am Mikasa AI, the lightweight AI assistant of MikasaHub.";
+
+        return;
+
+    }
+
+
+    /* UNKNOWN QUESTION */
+
+    answer.innerHTML =
+    "I don't know this yet. Try a Class 9 Science, Maths or Social Science question.";
+
 }
+
 </script>
 
 </body>
-    </html>
+</html>
