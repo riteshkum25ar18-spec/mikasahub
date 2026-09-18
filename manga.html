@@ -2,9 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Manga - MIKASAHUB</title>
+<title>MIKASAHUB - YouTube</title>
 
 <style>
 body {
@@ -23,67 +21,36 @@ header {
 
 h1 {
     margin: 0;
-    font-size: 24px;
-}
-
-header p {
-    margin: 5px 0 0;
-    font-size: 13px;
+    font-size: 22px;
 }
 
 main {
     padding: 10px;
 }
 
-.back {
-    display: block;
-    padding: 11px;
-    margin-bottom: 10px;
-    border: 1px solid #777;
-    background: #eee;
-    color: black;
-    text-decoration: none;
-    text-align: center;
-}
-
-.section {
-    border: 1px solid #999;
-    padding: 8px;
-}
-
-.section h2 {
-    margin: 0 0 8px;
-    font-size: 18px;
-}
-
-.manga {
-    border: 1px solid #777;
+input {
+    width: 100%;
+    box-sizing: border-box;
     padding: 10px;
-    margin: 6px 0;
-}
-
-.manga-name {
-    font-weight: bold;
-    margin-bottom: 7px;
+    font-size: 16px;
+    border: 1px solid #555;
 }
 
 .button {
     display: block;
-    padding: 10px;
-    margin-top: 5px;
+    padding: 12px 8px;
+    margin: 8px 0;
     background: #eee;
     border: 1px solid #777;
     color: black;
     text-decoration: none;
-    text-align: center;
 }
 
-footer {
-    margin-top: 15px;
-    border-top: 1px solid #999;
-    padding: 12px;
-    text-align: center;
-    font-size: 12px;
+.info {
+    border: 1px solid #999;
+    padding: 8px;
+    margin-top: 12px;
+    font-size: 13px;
 }
 </style>
 </head>
@@ -91,63 +58,44 @@ footer {
 <body>
 
 <header>
-<h1>MIKASAHUB</h1>
-<p>Manga</p>
+    <h1>MIKASAHUB</h1>
+    <p>YouTube Link Finder</p>
 </header>
 
 <main>
 
-<a class="back" href="index.html">
-← BACK TO HOME
+<input
+    type="text"
+    id="q"
+    placeholder="Enter video name..."
+>
+
+<a class="button" id="search" href="#">
+    🔎 Search YouTube
 </a>
 
-<div class="section">
-
-<h2>📖 MANGA</h2>
-
-<div class="manga">
-
-<div class="manga-name">
-1. Manga Chapter 1
-</div>
-
-<a class="button" href="chapter1.html">
-▶ Read
-</a>
-
-</div>
-
-<div class="manga">
-
-<div class="manga-name">
-2. Manga Chapter 2
-</div>
-
-<a class="button" href="chapter2.html">
-▶ Read
-</a>
-
-</div>
-
-<div class="manga">
-
-<div class="manga-name">
-3. Manga Chapter 3
-</div>
-
-<a class="button" href="chapter3.html">
-▶ Read
-</a>
-
-</div>
-
+<div class="info">
+    Search YouTube → open the video → copy its YouTube link.
 </div>
 
 </main>
 
-<footer>
-MIKASAHUB © 2026
-</footer>
+<script>
+document.getElementById("search").onclick = function() {
+
+    var q = document.getElementById("q").value;
+
+    if (q == "") {
+        return false;
+    }
+
+    this.href =
+    "https://www.youtube.com/results?search_query="
+    + encodeURIComponent(q);
+
+    return true;
+};
+</script>
 
 </body>
 </html>
