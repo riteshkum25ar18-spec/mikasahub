@@ -1,199 +1,29 @@
 <!DOCTYPE html><html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>MIKASAHUB - YouTube</title><style>
-body {
-    margin: 0;
-    background: white;
-    color: black;
-    font-family: Arial, sans-serif;
-}
-
-header {
-    background: #222;
-    color: white;
-    text-align: center;
-    padding: 12px;
-}
-
-h1 {
-    margin: 0;
-    font-size: 22px;
-}
-
-header p {
-    margin: 5px 0 0;
-    font-size: 13px;
-}
-
-main {
-    padding: 10px;
-}
-
-.search {
-    margin-bottom: 10px;
-}
-
-.search input {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #555;
-}
-
-.button {
-    display: block;
-    padding: 12px 8px;
-    margin: 7px 0;
-    background: #eee;
-    border: 1px solid #777;
-    color: black;
-    text-decoration: none;
-    text-align: center;
-}
-
-.button:active {
-    background: #ddd;
-}
-
-.section {
-    border: 1px solid #999;
-    padding: 8px;
-    margin-top: 10px;
-}
-
-.section h2 {
-    margin: 0 0 8px;
-    font-size: 17px;
-}
-
-.info {
-    font-size: 13px;
-    line-height: 1.5;
-}
-
-footer {
-    text-align: center;
-    border-top: 1px solid #999;
-    padding: 12px;
-    margin-top: 15px;
-    font-size: 12px;
-}
-
-/* Hide JavaScript warning when JS works */
-#jsWarning {
-    display: block;
-}
-</style></head><body><header>
-    <h1>MIKASAHUB</h1>
-    <p>YouTube Link Finder</p>
-</header><main><div class="search"><input
-    type="text"
-    id="searchBox"
-    placeholder="Enter video name..."
->
-
-</div><a
-class="button"
-href="#"
-id="searchButton"
-
-«»
-
-🔎 Search YouTube
-
-</a><div class="section"><h2>How to use</h2>
-
-<div class="info">
-
-    1. Enter the name of a YouTube video.<br><br>
-
-    2. Press "Search YouTube".<br><br>
-
-    3. Open the video you want.<br><br>
-
-    4. Copy its YouTube link.
-
-</div>
-
-</div><div class="section"><h2>Example searches</h2>
-
-<a class="button"
-   href="https://www.youtube.com/results?search_query=Arijit+Singh">
-   Arijit Singh
+<title>MIKASAHUB - YouTube</title>
+</head><body><center>
+<h2>MIKASAHUB</h2>
+<p>YouTube</p>
+</center><hr><h3>Search YouTube</h3><form action="https://www.youtube.com/results" method="get">
+    <input type="text" name="search_query" placeholder="Video name">
+    <input type="submit" value="SEARCH">
+</form><hr><h3>Quick Search</h3><p>
+<a href="https://www.youtube.com/results?search_query=Arijit+Singh">
+Arijit Singh
 </a>
-
-<a class="button"
-   href="https://www.youtube.com/results?search_query=anime+edit">
-   Anime Edit
+</p><p>
+<a href="https://www.youtube.com/results?search_query=Anime">
+Anime
 </a>
-
-<a class="button"
-   href="https://www.youtube.com/results?search_query=class+9+science">
-   Class 9 Science
+</p><p>
+<a href="https://www.youtube.com/results?search_query=Class+9+Science">
+Class 9 Science
 </a>
-
-</div><div class="section"><h2>Paste YouTube Link</h2>
-
-<input
-    type="text"
-    id="linkBox"
-    placeholder="Paste YouTube link here..."
->
-
-<a
-    class="button"
-    href="#"
-    id="openLink"
->
-    ▶ Open Video
-</a>
-
-</div><footer>
-    MIKASAHUB © 2026
-</footer><script>
-
-/* YouTube Search */
-
-var searchBox = document.getElementById("searchBox");
-var searchButton = document.getElementById("searchButton");
-
-searchButton.onclick = function() {
-
-    var query = searchBox.value;
-
-    if (query == "") {
-        return false;
-    }
-
-    var url =
-        "https://www.youtube.com/results?search_query="
-        + encodeURIComponent(query);
-
-    searchButton.href = url;
-
-    return true;
-};
-
-
-/* Open pasted YouTube link */
-
-var linkBox = document.getElementById("linkBox");
-var openLink = document.getElementById("openLink");
-
-openLink.onclick = function() {
-
-    var link = linkBox.value;
-
-    if (link == "") {
-        return false;
-    }
-
-    openLink.href = link;
-
-    return true;
-};
-
-</script></body>
-    </html>
+</p><hr><h3>Open YouTube Link</h3><form action="https://www.youtube.com/" method="get">
+    <input type="text" name="url" placeholder="YouTube link">
+    <input type="submit" value="OPEN">
+</form><hr><center>
+<p>MIKASAHUB © 2026</p>
+</center></body>
+</html>
