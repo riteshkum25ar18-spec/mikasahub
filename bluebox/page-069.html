@@ -1,9 +1,58 @@
-<html><head><title>Blue Box</title></head><body><center>
-<a href="page-068.html">&lt;&lt; PREV</a>
- | 
-<a href="page-070.html">NEXT &gt;&gt;</a>
-<br><br><img src="page-069.jpg" width="100%"><br><br>
-<a href="page-068.html">&lt;&lt; PREV</a>
- | 
-<a href="page-070.html">NEXT &gt;&gt;</a>
-</center></body></html>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Blue Box - Page 69</title>
+<script>
+var zoom = 1;
+
+function zoomIn() {
+    if (zoom < 10) {
+        zoom++;
+        document.getElementById("pic").width = 800 * zoom;
+        document.getElementById("level").innerHTML = zoom + "x";
+    }
+}
+
+function zoomOut() {
+    if (zoom > 1) {
+        zoom--;
+        document.getElementById("pic").width = 800 * zoom;
+        document.getElementById("level").innerHTML = zoom + "x";
+    }
+}
+
+function resetZoom() {
+    zoom = 1;
+    document.getElementById("pic").width = 800;
+    document.getElementById("level").innerHTML = "1x";
+}
+</script>
+</head>
+
+<body>
+
+<center>
+
+<h3>BLUE BOX</h3>
+
+<a href="javascript:zoomOut()">[-]</a>
+&nbsp;
+<span id="level">1x</span>
+&nbsp;
+<a href="javascript:zoomIn()">[+]</a>
+&nbsp;
+<a href="javascript:resetZoom()">[RESET]</a>
+
+<br><br>
+
+<img id="pic" src="compressed/page-069.jpg" width="800">
+
+<br><br>
+
+<a href="page-068.html">&lt; PREV</a>
+ | PAGE 69/188 | 
+<a href="page-070.html">NEXT &gt;</a>
+
+</center>
+</body>
+</html>
